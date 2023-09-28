@@ -39,3 +39,34 @@ echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 go version
 ```
+### Install Cosmovisor (OPTIONAL If you are using Cosmovisor)
+```sh
+go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@v1.5.0
+```
+## Install node
+### Download and install binary
+```sh
+cd $HOME
+rm -rf entangle-blockchain/
+git clone https://github.com/Entangle-Protocol/entangle-blockchain
+```
+```sh
+cd entangle-blockchain/
+make build
+```
+### Setup Cosmovisor Symlinks
+```sh
+mkdir -p $HOME/.entangled/cosmovisor/genesis/bin
+```
+```sh
+mv build/entangled $HOME/.entangled/cosmovisor/genesis/bin/
+```
+```sh
+rm -rf build
+```
+```sh
+sudo ln -s $HOME/.entangled/cosmovisor/genesis $HOME/.entangled/cosmovisor/current
+```
+```sh
+sudo ln -s $HOME/.entangled/cosmovisor/current/bin/entangled /usr/local/bin/entangled
+```
