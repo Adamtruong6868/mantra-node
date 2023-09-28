@@ -78,3 +78,8 @@ entangled config chain-id entangle_33133-1
 ```sh
 entangled config keyring-backend file
 ```
+### Init your node
+#### You can change "VNBnodes" to anything yours prefer name
+```sh
+entangled init VNBnodes --chain-id entangle_33133-1
+```
