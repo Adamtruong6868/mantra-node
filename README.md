@@ -1,7 +1,7 @@
-## mantra-node
-# Setup Server
+# mantra-node
+### Setup Server
 
-# Update Packages
+### Update Packages
 
 ```sh
 sudo apt update && apt upgrade -y
