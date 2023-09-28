@@ -1,4 +1,4 @@
-# mantra-node
+# MANTRA - NODE
 ### Setup Server
 
 ### Update Packages
