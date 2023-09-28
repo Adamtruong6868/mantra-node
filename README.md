@@ -44,12 +44,13 @@ go version
 go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@v1.5.0
 ```
 ## Install node
-### Download and install binary
+### Download 
 ```sh
 cd $HOME
 rm -rf entangle-blockchain/
 git clone https://github.com/Entangle-Protocol/entangle-blockchain
 ```
+### Install binary
 ```sh
 cd entangle-blockchain/
 make build
@@ -69,4 +70,11 @@ sudo ln -s $HOME/.entangled/cosmovisor/genesis $HOME/.entangled/cosmovisor/curre
 ```
 ```sh
 sudo ln -s $HOME/.entangled/cosmovisor/current/bin/entangled /usr/local/bin/entangled
+```
+### Set Configuration for your node
+```sh
+entangled config chain-id entangle_33133-1
+```
+```sh
+entangled config keyring-backend file
 ```
