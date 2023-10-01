@@ -102,4 +102,23 @@ PRUNING="custom"
 PRUNING_KEEP_RECENT="100"
 PRUNING_INTERVAL="19"
 ```
-
+```sh
+sed -i -e "s/^pruning *=.*/pruning = \"$PRUNING\"/" $HOME/.mantrachain/config/app.toml
+```
+```sh
+sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \
+\"$PRUNING_KEEP_RECENT\"/" $HOME/.mantrachain/config/app.toml
+```
+```sh
+sed -i -e "s/^pruning-interval *=.*/pruning-interval = \
+\"$PRUNING_INTERVAL\"/" $HOME/.mantrachain/config/app.toml
+```
+```sh
+sed -i -e 's|^indexer *=.*|indexer = "null"|' $HOME/.mantrachain/config/config.toml
+```
+```sh
+sed -i 's|^prometheus *=.*|prometheus = true|' $HOME/.mantrachain/config/config.toml
+```
+```sh
+sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0uaum\"/" $HOME/.mantrachain/config/app.toml
+```
