@@ -83,3 +83,23 @@ entangled config keyring-backend file
 ```sh
 entangled init VNBnodes --chain-id entangle_33133-1
 ```
+
+#### Add Genesis File and Addrbook
+```sh
+curl -Ls https://snapshots.indonode.com/mantra/genesis.json > $HOME/.mantrachain/config/genesis.json
+```
+```sh
+curl -Ls https://snapshots.indonode.com/mantra/addrbook.json > $HOME/.mantrachain/config/addrbook.json
+```
+#### Configure Seeds and Peers
+```sh
+PEERS="$(curl -sS https://rpc.mantra-t.indonode.net/net_info | jq -r '.result.peers[] | "\(.node_info.id)@\(.remote_ip):\(.node_info.listen_addr)"' | awk -F ':' '{print $1":"$(NF)}' | sed -z 's|\n|,|g;s|.$||')"
+sed -i -e "s|^persistent_peers *=.*|persistent_peers = \"$PEERS\"|" $HOME/.mantrachain/config/config.toml
+```
+#### Set Pruning, Enable Prometheus, Gas Price, and Indexer
+```sh
+PRUNING="custom"
+PRUNING_KEEP_RECENT="100"
+PRUNING_INTERVAL="19"
+```
+
